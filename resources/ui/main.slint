@@ -1,0 +1,27 @@
+import { VerticalBox, Rectangle } from "std-widgets.slint";
+
+export component VisualizerView inherits VerticalBox {
+    property <list<float>> heights_left;
+    property <list<float>> heights_right;
+
+    // Define a custom function for drawing bars based on heights
+    callback paint(cr: PainterContext, width: number, height: number) {
+        for i in 0..heights_left.length() {
+            let bar_width = width / (heights_left.length() as f32);
+            let x = i * bar_width;
+            let y = height - heights_left[i];
+            cr.set_source_rgba(0.0, 1.0, 0.0, 1.0); // Example color for left channel
+            cr.rectangle(x, y, bar_width, heights_left[i]);
+            cr.fill();
+        }
+
+        for i in 0..heights_right.length() {
+            let bar_width = width / (heights_right.length() as f32);
+            let x = i * bar_width;
+            let y = height - heights_right[i];
+            cr.set_source_rgba(1.0, 0.0, 0.0, 1.0); // Example color for right channel
+            cr.rectangle(x, y, bar_width, heights_right[i]);
+            cr.fill();
+        }
+    }
+}

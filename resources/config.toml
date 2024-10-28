@@ -1,0 +1,29 @@
+
+# resources/config.toml
+[window]
+width = 1200
+height = 250
+title = "Цветомузыка"
+
+[fft]
+size = 1024
+sample_rate = 44100.0
+min_frequency = 20.0
+max_frequency = 10000.0
+max_amplitude = 1000.0
+# frequencies = [20.0, 40.0, 80.0, 160.0, 320.0, 640.0, 1280.0, 2560.0, 5120.0, 10240.0, 20480.0]
+
+[visualizer]
+gain = 20.0
+scale_factor = 90.0
+interpolation_factor = 0.09
+alpha = 0.8
+smooth_factor = 0.7
+
+[grid]
+lines = 10
+line_width = 0.5
+color_left = [1.0, 0.0, 0.0]
+color_right = [0.0, 1.0, 0.0]
+color_horizontal = [1.0, 1.0, 1.0]
+alpha = 0.1
